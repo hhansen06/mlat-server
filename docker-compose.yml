@@ -1,0 +1,17 @@
+version: '2.0'
+
+volumes:
+  mlatserver_workdir:
+
+services:
+  readsb:
+    image: mlat-server:latest
+    tty: true
+    container_name: mlat-server
+    hostname: mlat-server
+    restart: always
+    ports:
+      - 5000:5000
+      - 5001:5001
+    volumes:
+      - mlatserver_workdir:/app/config
